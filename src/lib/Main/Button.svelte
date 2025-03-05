@@ -36,6 +36,7 @@
 	$: color = (sel?.template?.color && template?.color?.output) || sel?.color;
 	$: marquee = sel?.marquee;
 	$: more_info = sel?.more_info;
+	$: is_progress = sel?.is_progress;
 
 	let entity: HassEntity;
 	let contentWidth: number;
@@ -465,6 +466,11 @@
 			: 'rgba(0, 0, 0, 0)'
 	}}
 >
+	<!-- PROGRESS -->
+	{#if is_progress}
+		<div class="progress" style="width: {entity?.state}%"></div>
+	{/if}
+
 	<!-- ICON -->
 
 	<div
@@ -571,6 +577,18 @@
 		/* fix ripple */
 		transform: translateZ(0);
 		overflow: hidden;
+	}
+
+	.progress {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		background-color: var(--theme-button-background-color-on);
+		opacity: 0.35;
+		transition: width 0.3s ease;
+		border-radius: 0.65rem;
+		z-index: 1;
 	}
 
 	.image {

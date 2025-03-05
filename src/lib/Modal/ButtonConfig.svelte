@@ -389,6 +389,26 @@
 			</button>
 		</div>
 
+		<h2>{$lang('shows_progress')}</h2>
+
+		<div class="button-container">
+			<button
+				class:selected={sel.is_progress !== false}
+				on:click={() => set('is_progress', true)}
+				use:Ripple={$ripple}
+			>
+				{$lang('yes')}
+			</button>
+
+			<button
+				class:selected={sel.is_progress === false}
+				on:click={() => set('is_progress', false)}
+				use:Ripple={$ripple}
+			>
+				{$lang('no')}
+			</button>
+		</div>
+
 		{#if getDomain(entity_id) === 'media_player'}
 			<h2>Marquee</h2>
 

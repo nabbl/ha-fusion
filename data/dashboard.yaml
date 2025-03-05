@@ -12,6 +12,10 @@ views:
           - name: Test
             id: 2171067078835
             items:
+              - id: 9478669119521
+                type: button
+                entity_id: number.ev9_ac_charging_limit
+                is_progress: true
               - type: button
                 entity_id: light.studio_dator
                 id: 5008685947164
